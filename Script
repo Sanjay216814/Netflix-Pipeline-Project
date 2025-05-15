@@ -19,7 +19,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'maven s/w'
+        maven 'maven3'
     }
 
     stages {
@@ -31,7 +31,7 @@ pipeline {
         stage('Maven Build') {
             steps {
                 script {
-                    def mavenHome = tool name: 'maven s/w', type: 'maven'
+                    def mavenHome = tool name: 'maven3', type: 'maven'
                     def mavenCMD = "${mavenHome}/bin/mvn"
                     // Run Maven build with parallel execution and skip tests if needed
                     sh "${mavenCMD} clean package -T 1C -DskipTests"
